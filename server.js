@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs')
 
 const app = express();
+const port = process.env.port || 3000;
 
 hbs.registerPartials(__dirname + '/views/partials');
 
@@ -30,7 +31,7 @@ hbs.registerHelper('capitalize', (string) => {
     return string.toUpperCase();
 });
 
-app.listen(3000, () => console.log("Listening on Port 3000"));
+app.listen(port, () => console.log(`Listening on Port ${port}`));
 
 app.get('/', (req, res) => {
     res.render('home.hbs', {
